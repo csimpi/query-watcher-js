@@ -103,6 +103,7 @@
   "exclude": [
     "babel.config.js",
     "jest.config.js",
-    "build/**/*" // This is what fixed it!
+    "build/**/*" ,
+    "tests/**/*"
   ]
 }
