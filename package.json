@@ -4,11 +4,15 @@
   "description": "",
   "main": "QueryLogWatcher.js",
   "scripts": {
+    "install": "npm run build",
     "test": "jest",
     "start:dev": "nodemon",
     "build": "rimraf ./build && tsc",
     "start:prod": "npm run build && node build/QueryLogWatcher.js",
     "lint": "eslint . --fix"
+  },
+  "bin": {
+    "query-watcher": "build/QueryLogWatcher.js"
   },
   "keywords": [],
   "author": "",

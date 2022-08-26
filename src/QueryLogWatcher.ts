@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import "dotenv/config"
 import {AdapterInterface} from "./Interfaces/AdapterInterface";
 import {MessageInterface} from "./Interfaces/MessageInterface";
