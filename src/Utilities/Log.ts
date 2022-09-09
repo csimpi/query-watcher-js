@@ -37,7 +37,7 @@ export class Log{
 
     static log(type:string, ...args: any[]){
         if(QueryWatcherJsService.DEBUG_LEVEL > 0){
-            let message:any[] = [];
+            const message:any[] = [];
             for(const k in args){
                 if(typeof args[k] === 'string'){
                     message.push(this.status_colors[type](args[k]));

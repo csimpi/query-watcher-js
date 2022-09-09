@@ -1,22 +1,24 @@
 {
   "name": "query-watcher-js",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "CLI to print Laravel QueryWatcher's output.",
   "repository": "https://github.com/csimpi/query-watcher-js",
-  "main": "QueryLogWatcher.js",
+  "main": "build/QueryLogWatcher.js",
   "scripts": {
-    "install": "npm run build",
     "test": "jest",
     "start:dev": "nodemon",
     "build": "rimraf ./build && tsc",
     "start:prod": "npm run build && node build/QueryLogWatcher.js",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "prepublishOnly" : "npm test && npm run lint",
+    "prepare" : "npm run build",
+    "preversion" : "npm run lint"
   },
   "bin": {
     "query-watcher": "build/QueryLogWatcher.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["query-watcher","laravel","SQL-query-watcher"],
+  "author": "bitmads",
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.2",
@@ -31,13 +33,13 @@
     "readline-async": "^0.1.0",
     "rxjs": "^7.5.6",
     "socket.io": "^4.5.1",
-    "table": "^6.8.0",
-    "rimraf": "^3.0.2"
+    "table": "^6.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
     "@babel/preset-env": "^7.18.10",
     "@babel/preset-typescript": "^7.18.6",
+    "rimraf": "^3.0.2",
     "@types/express": "^4.17.13",
     "@types/jest": "^28.1.8",
     "@types/node": "^18.7.13",

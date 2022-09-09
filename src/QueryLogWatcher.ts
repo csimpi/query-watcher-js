@@ -19,7 +19,7 @@ export class QueryLogWatcher {
         this.parseParameters();
         if(this.validateParameters()){
             console.log('Selected driver:',chalk.greenBright(this.driver));
-            let adapterClassName = this.capitalizeFirstLetter(this.driver || '')+'Adapter';
+            const adapterClassName = this.capitalizeFirstLetter(this.driver || '')+'Adapter';
             import("./Adapters/"+adapterClassName).then((adapter:any) => {
                 this.connection = new adapter[adapterClassName](this.channel);
                 this.watch();
