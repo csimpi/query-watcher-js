@@ -4,14 +4,6 @@ import {AdapterInterface} from "../Interfaces/AdapterInterface";
 import {QueryWatcherJsService} from "../Services/QueryWatcherJsService";
 import {Log} from "../Utilities/Log";
 
-// import express from "express";
-// import http from "http";
-// import {Server} from "socket.io";
-
-// const app = express();
-// const server = http.createServer(app);
-// const io = new Server(server);
-
 const host = process.env.REDIS_HOST ?? 'localhost';
 const port:number = process.env.REDIS_PORT ? parseInt(process.env.REDIS_PORT) : 6379;
 
@@ -59,21 +51,6 @@ export class RedisAdapter implements AdapterInterface{
             console.error('Error during connecting to the service:\n', error);
             process.exit(1);
         });
-
-        /*
-        this.Server.monitor((err:any, monitor:any) => {
-            if(monitor){
-                monitor.on("monitor", (time:any, args:any, source:any, database:any) => {
-                    //console.log('REDIS',args,source,database)
-                });
-            }
-        });
-
-        const broadcastPort = process.env.BROADCAST_PORT;
-        server.listen(broadcastPort, function () {
-            console.log('Socket server is running.');
-        });
-        */
     }
 
     onMessage(){
