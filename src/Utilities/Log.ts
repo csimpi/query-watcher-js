@@ -30,6 +30,11 @@ export class Log{
         this.log('error',...args);
     }
 
+    static memory(){
+        const used = process.memoryUsage().heapUsed / 1024 / 1024;
+        this.warning(`${Math.round(used * 100) / 100} MB`);
+    }
+
     static log(type:string, ...args: any[]){
         if(QueryWatcherJsService.DEBUG_LEVEL > 0){
             let message:any[] = [];
