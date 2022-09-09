@@ -1,7 +1,8 @@
 {
   "name": "query-watcher-js",
   "version": "1.0.0",
-  "description": "",
+  "description": "CLI to print Laravel QueryWatcher's output.",
+  "repository": "https://github.com/csimpi/query-watcher-js",
   "main": "QueryLogWatcher.js",
   "scripts": {
     "install": "npm run build",
@@ -26,6 +27,8 @@
     "prism-console": "^1.0.2",
     "prismjs": "^1.28.0",
     "prismjs-components-importer": "^0.2.0",
+    "pusher-js": "^7.4.0",
+    "readline-async": "^0.1.0",
     "rxjs": "^7.5.6",
     "socket.io": "^4.5.1",
     "table": "^6.8.0"
