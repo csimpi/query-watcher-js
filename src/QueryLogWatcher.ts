@@ -9,7 +9,7 @@ import {Log} from "./Utilities/Log";
 
 export class QueryLogWatcher {
     // Parse .env params first (can be overridden by command line parameters)
-    driver: string | undefined = process.env.DRIVER;
+    driver: string | undefined = process.env.BROADCAST_DRIVER;
     token:string = process.env.QUERY_WATCH_TOKEN ? process.env.QUERY_WATCH_TOKEN : '';
     channel:string = "private-query.event."+this.token;
 
@@ -19,9 +19,9 @@ export class QueryLogWatcher {
         this.parseParameters();
         if(this.validateParameters()){
             console.log('Selected driver:',chalk.greenBright(this.driver));
-            let adapter = this.capitalizeFirstLetter(this.driver || '')+'Adapter';
-            import("./Adapters/"+adapter).then((adapter:any) => {
-                this.connection = new adapter.RedisAdapter(this.channel);
+            let adapterClassName = this.capitalizeFirstLetter(this.driver || '')+'Adapter';
+            import("./Adapters/"+adapterClassName).then((adapter:any) => {
+                this.connection = new adapter[adapterClassName](this.channel);
                 this.watch();
             });
         }else{
