@@ -1,6 +1,6 @@
 {
   "name": "query-watcher-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI to print Laravel QueryWatcher's output.",
   "repository": "https://github.com/csimpi/query-watcher-js",
   "main": "QueryLogWatcher.js",
